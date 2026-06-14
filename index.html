@@ -198,6 +198,37 @@
         .subtext a {
             text-decoration: none;
         }
+        /* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 550px) {
+            /* Stop the text from trying to wrap around the image */
+            .wrapped-image {
+                float: none;
+                display: block;
+                margin: 0 auto 20px auto; /* Centers the image and adds space below it */
+                max-width: 100%;          /* Ensures it doesn't overflow small screens */
+            }
+
+            /* Centers your intro heading and text on mobile for better alignment */
+            .content-box {
+                text-align: center;
+            }
+            
+            /* Keeps text left-aligned inside the centered paragraph for readability */
+            .content-box p {
+                text-align: left;
+            }
+
+            /* Adjusts the contact form layout on mobile so labels sit on top */
+            .form-group {
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .form-group label {
+                width: 100%;
+                padding-top: 0;
+            }
+        }
     </style>
 </head>
 <body>
