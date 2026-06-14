@@ -16,7 +16,7 @@
             background-color: #F7F4D5;
             color: #0A3323;
             line-height: 1.6;
-            max-width: 530px;     /* Changed from 500px to make the text column narrower */
+            max-width: 600px;     /* Changed from 500px to make the text column narrower */
             margin: 60px auto;
             padding: 0 30px;      /* Changed from 20px to give wider margins on mobile screens */
         }
@@ -24,7 +24,7 @@
         h1 {
             font-size: 1.7rem;
             font-weight: 600;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
@@ -81,11 +81,11 @@
         }
         .wrapped-image {
             /* This pushes the image to the left and forces text to wrap on the right */
-            float: left; 
+            float: right; 
             
             /* CRITICAL: Add margin so the text doesn't press right up against the image edge */
-            margin-right: 20px;
-            margin-bottom: 10px;
+            margin-left: 20px;
+            margin-top: -40px;
             
         }
         .next-paragraph {
@@ -204,16 +204,17 @@
 
     <h1>Allenna Tang</h1>
     <div class="content-box">
-    <img src="pic.png" alt="A picture of myself hiking!" class="wrapped-image" width="150" >
+    <img src="pic2.png" alt="A picture of myself hiking!" class="wrapped-image" width="280" >
       <p>Hi! I'm a final-year Computer Science and Philosophy student at McGill University, and a research intern in Prof. Jackie Cheung's lab (McGill/Mila), where I focus on making AI evaluation more rigorous. The best time to properly test an AI model is before it's deployed in the real world - the second best time is now!
         </p>
-    </div>
-    <ul class="next-paragraph">
+        <ul>
         <li><strong>This is important because...</strong> we need reliable tools to measure AI capabilities and make informed decisions 
             about their risks.
         </li>
         <li><strong>This is difficult because...</strong> existing benchmarks are compromised by dataset contamination, saturation, construct validity gaps, and the "gaming" of results.</li>
     </ul>
+    </div>
+    
 
 
   
