@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allenna Tang</title>
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #F7F4D5;
+            color: #0A3323;
+            line-height: 1.6;
+            max-width: 500px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 1.7rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            font-family: 'DM Mono', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        a {
+            color: #839958;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        a:hover {
+            color: #0066cc;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            font-size: 1.1rem;
+            margin-bottom: 10px; 
+            position: relative;
+            /* 1. Create space on the left for the dash */
+            padding-left: 24px; 
+        }
+
+        li::before {
+            content: "—";
+            position: absolute;
+            /* 2. Lock the dash to the far left inside the padded area */
+            left: 0;
+            top: 0; 
+            color: #666;
+        }
+
+        .subtext {
+            display: block; /* Forces it onto a new line under the link */
+            font-size: 0.95rem;
+            margin-top: 4px;
+            padding-left: 24px;
+        }
+        .wrapped-image {
+            /* This pushes the image to the left and forces text to wrap on the right */
+            float: left; 
+            
+            /* CRITICAL: Add margin so the text doesn't press right up against the image edge */
+            margin-right: 20px;
+            margin-bottom: 10px;
+            
+        }
+        .next-paragraph {
+            clear: both; /* This forces this paragraph to start on a fresh line below the floated image */
+        }
+        /* --- CONTACT FORM STYLES --- */
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            align-items: flex-start; /* Aligns labels to the top of textareas */
+            gap: 15px;
+        }
+
+        /* Force labels to sit on the left with a consistent, neat width */
+        .form-group label {
+            font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: #0A3323;
+            font-size: 1.1rem;
+            width: 120px; /* Fixed width ensures all input boxes line up perfectly */
+            flex-shrink: 0;
+            padding-top: 6px; /* Micro-adjustment to center text with input boxes */
+        }
+
+        /* Inputs styled to match your aesthetic */
+        .form-group input,
+        .form-group textarea {
+            flex-grow: 1;
+            padding: 8px 12px;
+            font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 1rem;
+            color: #0A3323;
+            background-color: transparent; /* Blends nicely with your #F7F4D5 background */
+            border: 1px solid rgba(10, 51, 35, 0.3); /* Subtle version of your text color */
+            border-radius: 4px;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        /* Focus state matches your active link colors */
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #839958;
+        }
+
+        /* Smaller button that matches your links */
+        .contact-form button {
+            align-self: flex-end; /* Pushes the button to the right side of the form */
+            padding: 8px 16px;
+            font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #F7F4D5; /* Body background color used as text color */
+            background-color: #839958; /* Matches your links */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #0A3323; /* Dark green on hover */
+        }
+        /* --- FOOTER BANNER STYLES --- */
+
+        .footer-banner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 80px;      /* Gives breathing room below your contact form */
+            padding-top: 20px;
+            border-top: 1px solid rgba(10, 51, 35, 0.1); /* Super faint minimalist divider line */
+            font-family: 'DM Mono', -apple-system, BlinkMacSystemFont, sans-serif; /* Keeps the utility links clean */
+            font-size: 0.95rem;
+        }
+
+        .footer-banner a {
+            color: #839958;
+            text-decoration: none; /* Removes the heavy underline for a lighter look */
+            transition: color 0.2s ease;
+        }
+
+        .footer-banner a:hover {
+            color: #0A3323; /* Highlights with your dark green on hover */
+        }
+
+        /* Minimalist slash separator styling */
+        .footer-banner .separator {
+            color: rgba(10, 51, 35, 0.3);
+            user-select: none; /* Prevents users from accidentally highlighting the slash */
+        }
+                /* Removes underlines from links inside list items that have subtext */
+        li a {
+            text-decoration: none;
+        }
+
+        /* Optional: If you also want to remove the underline from the tiny citation superscript numbers */
+        .subtext a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Allenna Tang</h1>
+    <div class="content-box">
+    <img src="pic.png" alt="A picture of myself hiking!" class="wrapped-image" width="150" >
+      <p>Hi! I am an undergraduate student in Computer Science and Philosophy at McGill University. I am currently a research intern in Prof. Jackie Cheung's lab at McGill/Mila based in Montreal, Canada, focusing on developing more rigorous and robust frameworks for language model evaluation.
+        </p>
+    </div>
+    <ul class="next-paragraph">
+        <li><strong>This is important because...</strong> we need reliable measurement tools to track AI capabilities and make informed decisions 
+            about their impact and risks.
+        </li>
+        <li><strong>This is difficult because...</strong> existing benchmarks are compromised by dataset contamination, saturation, construct validity gaps, and problems with the "gaming" of results.</li>
+    </ul>
+
+
+  
+        <!-- <h2>Research &amp; Projects</h2>
+    <ul>
+        <li><a href="#">Project Link One</a> - Brief one-line description of the work.</li>
+        <li><a href="#">Project Link Two</a> - Brief one-line description of the work.</li>
+    </ul> -->
+    <h2>Donate!</h2>
+        <ul>
+            <li>Find out <a href="https://www.givingwhatwecan.org/how-rich-am-i?c=pledge"> how rich you are.</a> Most people living in wealthy countries (US, Canada, UK, etc.) are in the top 5% of income earners worldwide. Your relatively small contribution could go very far!</li>
+            <li>Pledge to <a href="https://www.givingwhatwecan.org/pledge">donate 10% of your income!</a> (or if you are a student, unemployed, or simply unsure, start with a trial pledge of 1% of spending money). Atomic habits, more like a really awesome habit!</li>
+        </ul>
+
+    <h2>Fun stuff</h2>
+    <ul>
+        <li>I had the great privilege of bottom-tabbing <a href="https://wudc2026.calicotab.com/open/participants/team/313849/">WUDC 2026</a> 😌. 
+            <span class="subtext">The grand finals motion was "This House opposes the development of AI systems to optimise for human influence".</span>
+        </li>
+        <li>I published in the prestigious <a href="https://drive.google.com/file/d/1vaxOSWFpnZjP_1YF2CPnrDS89cWR7Tpc/view?usp=sharing">Journal Étudiant d'Explore, Été 2024</a>  (pg. 36).</li>
+        <li>I'm reading <a href="https://www.goodreads.com/book/show/41104077-invisible-women">Invisible Women</a> by Caroline Criado Pérez, and I recently read <a href="https://www.goodreads.com/book/show/34273236-little-fires-everywhere">Little Fires Everywhere</a> by Celeste Ng (👍!) 
+            <span class="subtext">From Invisible Women: "Studies have shown that a belief in your own personal objectivity, or a belief that you are not sexist, makes you less objective and more likely to behave in a sexist way." 
+                <a href="https://doi.org/10.1016/j.obhdp.2007.07.001"><sup>1,</sup></a>
+                <a href="https://doi.org/10.1073/pnas.1510649112"><sup>2,</sup></a>
+                <a href="https://doi.org/10.1017/s1930297500008470"><sup>3,</sup></a>
+                <a href="https://link.springer.com/article/10.1007/s11211-014-0228-0"><sup>4</sup></a>
+            </span>
+        </li>
+    </ul>
+
+    <h2>Talk to me!</h2>
+    <form action="https://formspree.io/f/mnjyljqw" method="POST" class="contact-form">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+
+        <button type="submit">Send Email</button>
+    </form>
+
+    <footer class="footer-banner">
+    <a href="https://github.com/allennatang" target="_blank" rel="noopener">GitHub</a>
+    <span class="separator">/</span>
+    <a href="mailto:allenna.tang@mail.mcgill.ca">Email</a>
+    </footer>
+
+
+</body>
+</html>
